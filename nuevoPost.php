@@ -22,9 +22,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 /* VARIABLES
 * TO-DO hay que tomar alguna medida para evitar una SQL injection!
 */
-$fecha = date('d.M.Y'); 
-//La fecha la tomamos del día en que se genera el post.
-//TO-DO: Los meses debieran aparecer en castellano 
 $titulo = $_POST['titulo'];
 $cuerpo = $_POST['cuerpo'];
 
@@ -46,13 +43,15 @@ if (empty($_POST['publicado'])) {
 * el formato es:
 INSERT INTO nombreTabla(nombrecampo1, nombrecampo2, etc)
 VALUES ('$variableGenerada1', '$variableGenerada2', '$etc')
+* Para determinar la fecha del post, usamos CURDATE() 
+* @See http://dev.mysql.com/doc/refman/5.5/en/date-and-time-functions.html#function_curdate
 */
 
 	if (empty($_SESSION['usuario'])) {echo '<br>Debes estar logueado para publicar mensajes.';}
 		else {
 			include 'conectar.php';
 			$consulta = " 	INSERT INTO post(date, title, body, published)
-							VALUES ('$fecha', '$titulo', '$cuerpo', '$publicado')
+							VALUES (CURDATE(), '$titulo', '$cuerpo', '$publicado')
 						";
 			$nuevoPost=mysqli_query($conectar,$consulta);
 			if ($nuevoPost) {echo 'Nuevo mensaje creado';}

@@ -34,7 +34,7 @@ create table if not exists usuario (
 
 create table if not exists post ( 
 	pid int unsigned not null auto_increment primary key,
-	date datetime not null,
+	date date not null,
 	title char(200) not null,
 	body text not null,
 	published int not null DEFAULT '0'
