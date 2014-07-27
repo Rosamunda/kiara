@@ -19,16 +19,20 @@ Archivos requeridos
 -------------------
 
 **login.php**
-Gestiona el acceso del usuario (formulario de login y consulta a base de datos).
+Gestiona el acceso del usuario. Contiene el form de login con la consulta a la base de datos. Se usan las siguientes funciones:
+mysqli_query()
+mysqli_num_rows()
+isset()
+header()
+mysqli_close()
 
-*index.php*
-Muestra el listado de textos publicados por fecha, los cuales se muestran en orden decreciente.
+**conectar.php**
+Gestiona la conexión a la base de datos. Todos los documentos que piden cosas a la base, deben incluír este documento. Usa las funciones:
+mysqli_connect()
+mysqli_set_charset()
 
-*nuevo.php*
-Acceso al admin para que cargue nuevos textos.
+**listado.php**
+Muestra la lista de mensajes (posts) [...]
 
-*lista.php*
-Muestra una lista de todos los textos publicados, indicando su estado.
-
-*logout.php*
-Funcionalidad para desloguearse
+**nuevoPost.php**
+Gestiona la generación de un nuevo mensaje. [...]
