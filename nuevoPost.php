@@ -9,7 +9,7 @@
 Título: <input type="text" name="titulo" />  
 Cuerpo del mensaje: <textarea name="cuerpo"> </textarea>
 Se publica? <input type="checkbox" name="publicado" checked>
-<input type="button" name="enviarPost" value="Guardar">
+<input type="submit" name="enviarPost" value="Guardar">
 <br>
 </form>
 
@@ -17,7 +17,7 @@ Se publica? <input type="checkbox" name="publicado" checked>
 
 // Todo comienza cuando el usuario hace un submit...
 
-if(isset($_POST['enviarPost'])){
+if($_SERVER['REQUEST_METHOD']=='POST'){
 
 /* VARIABLES
 * TO-DO hay que tomar alguna medida para evitar una SQL injection!

@@ -63,9 +63,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		* time() funciona con segundos, por lo que le decimos que guarde la cookie por 
         * 30 días: 24*60*60 es un día * 30 días
     	*/
-        /*
+        
     	$_SESSION['usuario']=$_POST['usuario'];
-
+        /*
         if ($_POST['recordarme']) {
             setcookie ("usuario",$usuario, time()+24*60*60*30);
             setcookie ("clave",$clave, time()+24*60*60*30);
