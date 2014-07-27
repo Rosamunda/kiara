@@ -17,9 +17,12 @@ Los visitantes del sitio pueden acceder a todos los contenidos publicados.
 
 Archivos requeridos
 -------------------
+
+**login.php**
+Gestiona el acceso del usuario (formulario de login y consulta a base de datos).
+
 *index.php*
 Muestra el listado de textos publicados por fecha, los cuales se muestran en orden decreciente.
-Permite el login del admin.
 
 *nuevo.php*
 Acceso al admin para que cargue nuevos textos.

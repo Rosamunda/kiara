@@ -1,3 +1,10 @@
+<form name="loguearse" action="" method="POST">
+Usuario: <input type="text" name="usuario" /> 
+Clave: <input type="text" name="clave" />
+<input type="submit" name="submit" value="Entrar!">
+<br>
+</form>
+
 <?php
 /* CONSULTA A BASE DE DATOS PARA LOGUEAR AL USUARIO 
 *
@@ -20,19 +27,15 @@
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
 
-    /*generamos variables para filtrar la información que envia el usuario y
-    * evitar una 
-    * @see http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php SQL Injection
-    */
-
-	$conexion=mysqli_connect('localhost','kiaraAdmin','123456','kiara')
-	OR die('Upa! Algo salió mal y no se pudo conectar a la base de datos para loguearte. Error '.mysqli_connect_errno());
+    //incluímos la conexión a base. Usar la variable $conectar
+    include 'conectar.php';
 
     /*generamos las variables con los datos del usuario.
     * así como están son INSEGURAS.
     * TO-DO: 
     * mysqi_real_escape_string()? http://php.net/manual/en/function.mysql-real-escape-string.php
     * o mysqli_prepare() http://php.net/mysqli.prepare
+    * @see http://stackoverflow.com/questions/60174/how-can-i-prevent-sql-injection-in-php SQL Injection
     */
     $usuario = $_POST['usuario'];
     $clave = $_POST['clave'];
@@ -42,7 +45,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                  AND pass='$clave'
               ";
 
-    $resultado=mysqli_query($conexion,$consulta);
+    $resultado=mysqli_query($conectar,$consulta);
 
     $rows = mysqli_num_rows($resultado);
     if ($rows) {
@@ -60,7 +63,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 		* time() funciona con segundos, por lo que le decimos que guarde la cookie por 
         * 30 días: 24*60*60 es un día * 30 días
     	*/
-
+        /*
     	$_SESSION['usuario']=$_POST['usuario'];
 
         if ($_POST['recordarme']) {
@@ -69,14 +72,15 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
             } else {
                 setcookie("usuario","");
                 setcookie("clave","");
-                } 
+                }
+        */ 
 
     /*
     * Si la sesión existe, es decir está seteada según nos informa isset(), 
     * entonces le damos acceso al usuario y lo saludamos
     */
     if (isset($_SESSION['usuario'])) {
-        echo 'Hola '.$_SESSION['usuario']. ' Session Id: '.session_id().'<a href="salir.php">Salir</a>';
+        header('Location: index.php');
     } else {
         echo "Oops! Falló la generación de la sesión.";
       }

@@ -30,7 +30,7 @@ create table if not exists usuario (
 	pass char(20) not null,
 	name char(200) not null,
 	email char(200) not null
-);
+) DEFAULT CHARACTER SET utf8;
 
 create table if not exists post ( 
 	pid int unsigned not null auto_increment primary key,
@@ -38,4 +38,4 @@ create table if not exists post (
 	title char(200) not null,
 	body text not null,
 	published int not null DEFAULT '0'
-);
+) DEFAULT CHARACTER SET utf8;

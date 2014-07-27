@@ -10,7 +10,8 @@
     }else{
         session_unset(); //destruye todas las variables de sesión
         session_destroy(); // finaliza la sesión
-        echo 'Has salido correctamente <a href="index.php">Volver a inicio</a>';
+        header('Location: index.php');
+        //echo 'Has salido correctamente <a href="index.php">Volver a inicio</a>';
          }
     die();
     
