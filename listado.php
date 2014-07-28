@@ -11,13 +11,13 @@ include 'conectar.php';
 $consulta="  SELECT pid, date, title, body, published 
 			 FROM post 
 			 WHERE published='1'
+			 ORDER BY date DESC
 			 ";
 
 $resultado=mysqli_query($conectar,$consulta);
 
 foreach ($resultado as $key => $value) {
-	echo '<br>Item id'.$value['pid'].'<br>'.$value['date'].'<br>'.
-	$value['title'].'<br>'.$value['body'].'<br>'.
-	'Está publicado? '.$value['published'].'<br>';
+	echo '<hr> <h3>'.$value['title'].'</h3>'.$value['body'].'<br>'.
+	'--> Item id <b>'.$value['pid'].'</b> del '.$value['date'].'<br>';
 }
 

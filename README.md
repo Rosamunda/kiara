@@ -6,17 +6,18 @@ This is just a test.
 Objetivo
 ========
 Creación de un CMS básico en PHP, sin usar objetos y usando PHPdocumentor para documentar todo lo hecho.
+El sistema corre dentro de una carpeta "kiara".
 
 Funcionalidad
 -------------
-Weblog para un sólo usuario, donde el admin se loguea y puede generar textos.
+Weblog *unipersonal*, donde el admin se loguea y puede generar textos.
 Cada texto es de un único autor -el admin- y consta de una fecha de creación, un título y un contenido o cuerpo.
 Estos textos se publican o se mantienen como borrador (en un estado "no publicado").
 El admin puede editarlos para modificarlos o para cambiarles su estado.
 Los visitantes del sitio pueden acceder a todos los contenidos publicados.
 
-Archivos requeridos
--------------------
+Archivos que contiene el sistema
+--------------------------------
 
 **login.php**
 Gestiona el acceso del usuario. Contiene el form de login con la consulta a la base de datos. Se usan las siguientes funciones:
@@ -25,6 +26,7 @@ mysqli_num_rows()
 isset()
 header()
 mysqli_close()
+Actualmente este archivo se inserta en index.php.
 
 **conectar.php**
 Gestiona la conexión a la base de datos. Todos los documentos que piden cosas a la base, deben incluír este documento. Usa las funciones:
@@ -32,7 +34,28 @@ mysqli_connect()
 mysqli_set_charset()
 
 **listado.php**
-Muestra la lista de mensajes (posts) [...]
+Hace la consulta a base y muestra el listado de posts que cumplen la condición de estar publicados. 
+Actualmente este archivo se inserta en index.php.
 
 **nuevoPost.php**
-Gestiona la generación de un nuevo mensaje. [...]
+Gestiona la generación de cada nuevo mensaje.
+Contiene el formulario web de carga de un nuevo post al pie del listado de la home.
+Usamos header() para hacer el reenvío al finalizar la operación.
+Actualmente este archivo se inserta en index.php.
+
+**adminPosts.php**
+En caso de estar logueado, se muestra el listado de todos los posts -publicados o no- y un link hacia la edición de cada uno.
+Usamos $_GET['...'] ya que cada link contiene el número de id de cada post, y de allí tomamos el dato para hacer las consultas a la base de datos.
+
+**salir.php**
+Gestiona el logout del usuario. Se usan las siguientes fuciones:
+session_unset();
+session_destroy();
+
+**header.php**
+El encabezado de las páginas.
+
+**database.sql**
+Contiene la información para generar la base de datos.
+
+**config.php**

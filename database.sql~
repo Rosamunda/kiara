@@ -20,7 +20,7 @@ CREATE DATABASE if not exists kiara
 
 USE kiara;
 
-GRANT SELECT, INSERT, UPDATE, DELETE
+GRANT SELECT, INSERT, UPDATE
 on kiara.*
 to kiaraAdmin;
 
@@ -39,12 +39,3 @@ create table if not exists post (
 	body text not null,
 	published int not null DEFAULT '0'
 ) DEFAULT CHARACTER SET utf8;
-
-create table if not exists configuraciones ( 
-	cid int unsigned not null auto_increment primary key,
-	config char(200) not null,
-	valor char(200) not null
-) DEFAULT CHARACTER SET utf8;
-
-INSERT INTO configuraciones(config, valor)
-VALUES ('carpeta', 'kiara');

@@ -1,7 +1,7 @@
 <?php
 /*
 * Formulario de carga de nuevos mensajes (posts).
-* Sólo lo mostramos si el usuario está logueado.
+* 
 */
 ?>
 <br>
