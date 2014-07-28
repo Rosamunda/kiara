@@ -12,15 +12,19 @@
 <body>
 <?php
 
+	include 'funciones.php';
+
 	//incluímos el encabezado con los campos para loguearse
 	if (empty($_SESSION['usuario'])) include 'login.php';
 	else {
 	?>
 		Estás logueado como <?php echo $_SESSION['usuario']; ?> 
-		<a href="<?php echo $carpeta;?>">inicio</a> | 
+		<a href="<?php echo $obtenerCarpeta;?>">inicio</a> | 
 		<a href="adminPosts.php">administrar posts</a> | 
 		<a href="config.php">configuraciones</a> | 
 		<a href="salir.php">salir</a>
 		<br><br>
 	<?php
 	}
+
+	
