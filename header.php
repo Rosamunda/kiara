@@ -19,7 +19,7 @@
 	else {
 	?>
 		Estás logueado como <?php echo $_SESSION['usuario']; ?> 
-		<a href="<?php echo $obtenerCarpeta;?>">inicio</a> | 
+		<a href="/<?php echo obtenerCarpeta(); ?>">inicio</a> | 
 		<a href="adminPosts.php">administrar posts</a> | 
 		<a href="config.php">configuraciones</a> | 
 		<a href="salir.php">salir</a>

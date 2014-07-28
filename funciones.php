@@ -5,7 +5,7 @@
 * obtiene el valor de la carpeta donde está la instalación del sistema
 * Con un echo obtenerCarpeta() directamente se imprime el valor
 *
-*
+* guardarDatos()
 *
 *
 *
@@ -19,9 +19,10 @@ function obtenerCarpeta() {
 	*/
 
 	include 'conectar.php';
-	$data="  SELECT cid, config, valor 
-			 FROM configuraciones 
-				 ";
+	$data="  SELECT config, valor 
+			 FROM configuraciones
+			 WHERE config = 'carpeta'
+		  ";
 	$resultado=mysqli_query($conectar,$data);
 
 	/*
@@ -32,10 +33,23 @@ function obtenerCarpeta() {
 	*/
 
 	foreach ($resultado as $key => $value) {
-		if ($key==0) {
 			$carpeta = $value['valor'];
 			return $carpeta;
-		}
 	}
+	mysqli_close($conectar);
+}
 
+/* Función que guarda en base los datos cargados en el archivo config.php 
+* Agregarle parámetros para que nos sirva para todos los guardados?
+*/
+function guardarDatos() {
+
+	include 'conectar.php';
+	$guardar= " UPDATE configuraciones
+				SET valor='".$_POST['carpeta']."'
+				WHERE config='carpeta'
+		 			 ";
+	mysqli_query($conectar,$guardar);
+	mysqli_close($conectar);
+	header('Location: config.php');
 }

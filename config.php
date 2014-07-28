@@ -4,14 +4,18 @@
 */
 
 include 'header.php';
-include 'funciones.php';
 ?>
 
 
 <form action="" name="configuraciones" method="POST">
 	Carpeta de instalación: 
-	<input type="text" name="carpeta" value="<?php echo $obtenerCarpeta();?>" /><br>
+	<input type="text" name="carpeta" value="<?php echo obtenerCarpeta(); ?>" /><br>
 
+	<br><input type="submit" name="submit" value="Guardar configuración">
 </form>
 
 <?php
+
+if($_SERVER['REQUEST_METHOD']=='POST'){
+	guardarDatos();
+}
