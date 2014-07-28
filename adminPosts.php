@@ -80,7 +80,7 @@ $published=$post['published'];
 	?>
 	<input type="text" name="title" value="<?php echo $title; ?>" /><br>
 	<textarea name="body"><?php echo $body; ?></textarea><br>
-	Publicar? <input type="checkbox" <?php echo $checked; ?> /><br>
+	Publicar? <input name="published" type="checkbox" <?php echo $checked; ?> /><br>
 	<input type="submit" value="Modificar ahora" name="submit"><br>
 </form>
 
@@ -92,25 +92,25 @@ mysqli_close($conectar);
 if($_SERVER['REQUEST_METHOD']=='POST') {
 
 	include 'conectar.php';
-		// antes de consultar la base vamos a determinar si el post
-		// está o no publicado. 
-		if ($post['published']=='1') {
-		$post['published'] = 1;
-		} else $post['published'] = 0;
+		/* antes de consultar la base vamos a determinar si el post
+		* está o no publicado.
+		* Usar 	if ($_POST['published']==true) no anda. 
+		*/
+		if (isset($_POST['published'])) {
+			$_POST['published'] = 1;
+		} else { $_POST['published'] = 0; }
+
 	$modificaciones= " UPDATE post
 					   SET 	title='".$_POST['title']."',
 					   		body='".$_POST['body']."',
-					   		published='$published'
+					   		published='".$_POST['published']."'
 					   WHERE pid='".$_GET['editar']."'
 
-		 ";
+		 			 ";
 	$resultado=mysqli_query($conectar,$modificaciones);
 
-	if ($modificaciones) {
-		echo 'Modificaciones guardadas.';
-	} else {echo 'Oops! No se guardaron los cambios!';}
-mysqli_close($conectar);
+	mysqli_close($conectar);
 
-header('Location: adminPosts.php');
+	header('Location: adminPosts.php');
 
 }
