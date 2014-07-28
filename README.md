@@ -1,20 +1,21 @@
 kiara
 =====
 
-This is just a test.
+El objetivo de este app es simplemente el de ejercitación de algunos conocimientos aprendidos. Se trata de una aplicación en PHP que no -por el momento- usa objetos.
 
-Objetivo
-========
-Creación de un CMS básico en PHP, sin usar objetos y usando PHPdocumentor para documentar todo lo hecho.
-El sistema corre dentro de una carpeta "kiara".
+El objetivo ha sido la puesta en marcha de un CMS básico en PHP.
 
 Funcionalidad
 -------------
-Weblog *unipersonal*, donde el admin se loguea y puede generar textos.
+Weblog *unipersonal*, donde el admin se loguea y puede crear textos (posts).
 Cada texto es de un único autor -el admin- y consta de una fecha de creación, un título y un contenido o cuerpo.
 Estos textos se publican o se mantienen como borrador (en un estado "no publicado").
-El admin puede editarlos para modificarlos o para cambiarles su estado.
+El admin puede editarlos para modificarlos o para cambiarles su estado, o en su caso borrarlos.
 Los visitantes del sitio pueden acceder a todos los contenidos publicados.
+
+TO-DO
+-----
+Como esta aplicación es una mera ejercitación, no se tuvo en cuenta aún ningún control sobre el input del usuario, para prever una SQL Injection.
 
 Archivos que contiene el sistema
 --------------------------------
@@ -47,11 +48,6 @@ Actualmente este archivo se inserta en index.php.
 En caso de estar logueado, se muestra el listado de todos los posts -publicados o no- y un link hacia la edición de cada uno.
 Usamos $_GET['...'] ya que cada link contiene el número de id de cada post, y de allí tomamos el dato para hacer las consultas a la base de datos.
 
-**salir.php**
-Gestiona el logout del usuario. Se usan las siguientes fuciones:
-session_unset();
-session_destroy();
-
 **header.php**
 El encabezado de las páginas.
 
@@ -68,3 +64,8 @@ El archivo guarda los nuevos datos usando la función guardarDatos()
 **funciones.php**
 Contiene las funciones específicas del sistema, creadas ad hoc.
 Está incrustado en header.php, por lo que todas las páginas acceden a la data provista por este archivo.
+
+**salir.php**
+Gestiona el logout del usuario. Se usan las siguientes fuciones:
+session_unset();
+session_destroy();
