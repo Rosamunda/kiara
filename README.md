@@ -59,3 +59,12 @@ El encabezado de las páginas.
 Contiene la información para generar la base de datos.
 
 **config.php**
+Archivo que contiene algunas configuraciones del sistema.
+Por el momento tiene solamente:
+- Carpeta del sistema: Usamos la función obtenerCarpeta()
+- Cantidad de posts en inicio: usamos la función cantPosts()
+El archivo guarda los nuevos datos usando la función guardarDatos()
+
+**funciones.php**
+Contiene las funciones específicas del sistema, creadas ad hoc.
+Está incrustado en header.php, por lo que todas las páginas acceden a la data provista por este archivo.

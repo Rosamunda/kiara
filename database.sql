@@ -47,4 +47,6 @@ create table if not exists configuraciones (
 ) DEFAULT CHARACTER SET utf8;
 
 INSERT INTO configuraciones(config, valor)
-VALUES ('carpeta', 'kiara');
+VALUES ('carpeta', 'kiara'),
+VALUES ('cantPosts', '10'),
+VALUES ('mostrarDatos', '1');
