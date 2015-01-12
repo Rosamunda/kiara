@@ -15,8 +15,8 @@ Los visitantes del sitio pueden acceder a todos los contenidos publicados.
 
 TO-DO
 -----
-**~~Como esta aplicación es una mera ejercitación, no se tuvo en cuenta aún ningún control sobre el input del usuario, para prever una SQL Injection.~~** 
-Sql injection solucionada usando prepared statements cada vez que tomamos algún dato de $_POST. No usamos $_GET para obtener ningún dato cargado por el usuario. Sólo usamos $_GET en la página de edición de los posts, de acceso al admin.
+**~~Como esta aplicación es una mera ejercitación, no se tuvo en cuenta aún ningún control sobre el input del usuario, para prevenir una SQL Injection.~~** 
+Peligro de Sql injection solucionada usando prepared statements cada vez que tomamos algún dato de $_POST. No usamos $_GET para obtener ningún dato cargado por el usuario. Sólo usamos $_GET en la página de edición de los posts, de acceso al admin.
 
 **Hacer un archivo de posts.**
 
