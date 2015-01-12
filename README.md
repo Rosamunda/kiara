@@ -1,7 +1,7 @@
 kiara
 =====
 
-El objetivo de este app es simplemente el de ejercitación de algunos conocimientos aprendidos. Se trata de una aplicación en PHP que no -por el momento- usa objetos.
+El objetivo de este app es simplemente el de ejercitación de algunos conocimientos aprendidos. Se trata de una aplicación en PHP que -por el momento- no usa objetos.
 
 El objetivo ha sido la puesta en marcha de un CMS básico en PHP.
 
