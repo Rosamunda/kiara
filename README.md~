@@ -70,4 +70,3 @@ Está incrustado en header.php, por lo que todas las páginas acceden a la data 
 Gestiona el logout del usuario. Se usan las siguientes fuciones:
 session_unset();
 session_destroy();
-
