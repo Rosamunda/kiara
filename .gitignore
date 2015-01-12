@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /bower_components/*
 /.sass-cache/*
 *.DS_Store
 /stylesheets/*
+=======
+.elasticbeanstalk/
+>>>>>>> 7257090d4c9475bd87b672d957709bdc29b1f139
