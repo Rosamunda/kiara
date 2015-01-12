@@ -49,5 +49,10 @@
 
 <?php
 	}
+?>
+<div class="panel clearfix">
 
+<a href="/<?php echo obtenerCarpeta(); ?>"><h1><b><span style="color:#AA6104;font-size:180%;">Kiara App</span></b></h1></a>
+<h3>Sencilla aplicación para postear mensajes en la web</h3>
+<br><br>
 	

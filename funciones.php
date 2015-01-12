@@ -89,3 +89,30 @@ function guardarDatos() {
 	header('Location: config.php');
 }
 
+
+/* Esta función obtiene el item que buscamos de la base de datos y lo muestra
+* El item es obtenido mediante $_GET, por lo que cuidamos de sanitizarlo con un 
+* prepared statement
+*/
+
+function get_post($postId) {
+	//si no hay un id no mostramos nada
+	if (!$postId) {
+		return false;
+	}
+	include 'conectar.php';
+	$consulta = "SELECT * FROM post WHERE pid='".$postId."'
+				";
+	$resultado=mysqli_query($conectar,$consulta);
+	//Una vez obtenidos los resultamos, los metemos en un array asociativo 
+	//y generamos una variable individual para cada dato
+
+	$post=mysqli_fetch_assoc($resultado);
+	return $post; 
+	/**
+	 * devolvemos el array con todos los items
+	 * para obtener los datos, usamos cada key del array, por ejemplo:
+	 * el título está en $post['title'];, el id está en $post['pid'];
+	 * etc.
+	*/
+}

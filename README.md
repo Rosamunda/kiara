@@ -18,7 +18,11 @@ TO-DO
 **~~Como esta aplicación es una mera ejercitación, no se tuvo en cuenta aún ningún control sobre el input del usuario, para prevenir una SQL Injection.~~** 
 Peligro de Sql injection solucionada usando prepared statements cada vez que tomamos algún dato de $_POST. No usamos $_GET para obtener ningún dato cargado por el usuario. Sólo usamos $_GET en la página de edición de los posts, de acceso al admin.
 
-**Hacer un archivo de posts.**
+**Hacer un archivo de posts.** Está hecho, pero falta la paginación.
+
+**Hacer una pantalla de configuraciones personales del usuario**
+
+**~~Cada item debe tener su propio url~~**
 
 Archivos que contiene el sistema
 --------------------------------

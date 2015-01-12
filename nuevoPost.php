@@ -52,9 +52,10 @@ VALUES ('$variableGenerada1', '$variableGenerada2', '$etc')
 		else {
 			include 'conectar.php';
 			//preparamos la consulta a la base para evitar posible sql injection
+			//usamos NOW() en lugar de CURDATE()
 			$consulta = mysqli_prepare($conectar,
 							"INSERT INTO post(date, title, body, published) 
-							 VALUES (CURDATE(), ? , ?, ?)
+							 VALUES (NOW(), ? , ?, ?)
 							");
 			if ($consulta) {
 				//enganchamos la sustitución con el valor sanitizado
