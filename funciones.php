@@ -74,7 +74,7 @@ function guardarDatos() {
 	// variables
 	$carpeta = $_POST['carpeta'];
 	$cantPosts = $_POST['cantPosts'];
-	$mostrarDatos = $_POST['mostrarDatos'];
+	//$mostrarDatos = $_POST['mostrarDatos'];
 
 	include 'conectar.php';
 	mysqli_query($conectar,"UPDATE configuraciones
@@ -86,7 +86,9 @@ function guardarDatos() {
 							WHERE config='cantPosts'");
 
 	mysqli_close($conectar);
-	header('Location: config.php');
+	echo '<script>
+	window.location.replace("index.php");
+	</script>';
 }
 
 

@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php 
 /*
 * Esta es el área de administración, a la cual sólo tiene acceso el admin.
@@ -134,10 +133,8 @@ else {
 
 			 			 ";
 		$resultado=mysqli_query($conectar,$modificaciones);
-
 		mysqli_close($conectar);
-
-		header('Location: adminPosts.php');
+		echo '<script>window.location.replace("adminPosts.php");</script>';
 
 	}
 
@@ -153,8 +150,8 @@ else {
 
 		$borrado = mysqli_query($conectar, $borrar);
 		mysqli_close($conectar);
-
-		header('Location: adminPosts.php');
+		//no usamos location.reload(); porque se queda recargando indefinidamente
+		echo '<script>window.location.replace("adminPosts.php");</script>';
 	}
 }
 

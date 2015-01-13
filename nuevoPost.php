@@ -16,13 +16,12 @@ Cuerpo del mensaje: <textarea name="cuerpo"> </textarea>
 
 <?php
 
-// Todo comienza cuando el usuario hace un submit...
-
-if($_SERVER['REQUEST_METHOD']=='POST'){
-
 /* VARIABLES */
 $titulo = $_POST['titulo'];
 $cuerpo = $_POST['cuerpo'];
+
+// Cuando el usuario hace un submit...
+if($_SERVER['REQUEST_METHOD']=='POST'){
 
 //Indicamos cuándo el mensaje está publicado y cuándo no
 if (empty($_POST['publicado'])) {
@@ -66,8 +65,8 @@ VALUES ('$variableGenerada1', '$variableGenerada2', '$etc')
 				mysqli_stmt_bind_param( $consulta, 'ssi', $titulo, $cuerpo, $publicado);
 				//ejecutamos el statement
 				mysqli_stmt_execute($consulta);
+				echo 'Nuevo mensaje creado';
 			}
-			if ($consulta) {echo 'Nuevo mensaje creado';}
 			else {echo 'Hubo un error! El post no se guardó.';}
 			mysqli_stmt_close($consulta);
 			//usamos header() para que recargue la página.

@@ -31,7 +31,7 @@
 	<nav class="top-bar" data-topbar role="navigation">
 	  <ul class="title-area">
 	    <li class="name">
-	      <h1><a href="#">Estás logueado como <b><?php echo $_SESSION['usuario']; ?></b></a></h1>
+	      <h1><a href="usuario.php">Estás logueado como <b><?php echo $_SESSION['usuario']; ?></b></a></h1>
 	    </li>
 	  </ul>
 

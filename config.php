@@ -4,7 +4,12 @@
 */
 
 include 'header.php';
+
+if (empty($_SESSION['usuario'])) { echo 'No puedes acceder a esta página sin estar logueado';}
+else {
+
 ?>
+
 
 <div class="row panel">
     <div class="large-12 columns"><br><br><h1>Configuraciones</h1><br>
@@ -30,9 +35,11 @@ include 'header.php';
 if($_SERVER['REQUEST_METHOD']=='POST'){
 	$_POST['cantPosts'] = intval($_POST['cantPosts']);
 	if (is_int($_POST['cantPosts'])) {
-		guardarDatos();	
+		guardarDatos();
 	} else { echo 'Oops! Error en la carga de datos. Los cambios no se guardaron';}
 
 }
 
 include 'footer.php';
+
+}

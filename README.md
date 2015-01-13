@@ -20,7 +20,7 @@ Peligro de Sql injection solucionada usando prepared statements cada vez que tom
 
 **Hacer un archivo de posts.** Está hecho, pero falta la paginación.
 
-**Hacer una pantalla de configuraciones personales del usuario**
+**~~Hacer una pantalla de configuraciones personales del usuario~~**
 
 **~~Cada item debe tener su propio url~~**
 

@@ -1,8 +1,11 @@
 
 <?php include 'header.php'; ?>
 
-
+<?php
+if (empty($_SESSION['usuario'])) { }
+else { ?>
 <a href="#" data-reveal-id="myModal" class="panel right" style="margin-right:14%;margin-top:-8%;">&#x270e; <b>Nuevo Mensaje</b></a>
+<?php } ?>
 <a href="archivo.php" class="panel right" style="margin-right:14%;margin-top:-2%;"><b> &#x2605; Ver Archivo &#x2605; </b></a>
 <div id="myModal" class="reveal-modal" data-reveal>
 <?php include 'nuevoPost.php'; ?>
@@ -19,4 +22,3 @@
 		<?php include 'footer.php'; ?>
       </div>
     </div>
-</div>
